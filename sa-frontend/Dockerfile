@@ -11,7 +11,7 @@
 # test image installs development dependencies
 # and runs testing commands
 # derived from BASE
-FROM BASE as TEST
+#FROM BASE as TEST
 # Copy files _from_ BASE
 # To avoid accidentally creating different
 # testing environment from production
@@ -49,3 +49,5 @@ RUN npm run build
 #COPY --from=build /app/build /usr/share/nginx/html
 #EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
+
+
