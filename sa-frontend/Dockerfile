@@ -40,7 +40,7 @@ COPY package.json /app/package.json
 COPY yarn.lock /app/yarn.lock
 RUN npm install #--silent
 RUN npm install react-scripts@3.0.1 -g #--silent
-RUN npm build:nginix
+RUN npm build
 COPY . /app
 RUN npm run build
 
