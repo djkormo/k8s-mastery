@@ -13,6 +13,15 @@ api = Api(app, version='1.0', title='Sentiment API',
 )
 # name space 
 ns = api.namespace('', description='Operations for Sentiment API')
+
+
+@ns.route('/health')  #  Create a URL route to this resource
+class HelloWorld(Resource):            #  Create a RESTful resource
+  def get(self):                     #  Create GET endpoint
+    #return {'hello': 'world'}
+    return '', 200
+
+
 # was @app.route
 @ns.route("/analyse/sentiment", methods=['POST'])
 def analyse_sentiment():
