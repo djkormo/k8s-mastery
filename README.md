@@ -8,3 +8,42 @@ To learn more about Kubernetes and other related topics check the following exam
 * [Istio around everything else series](https://rinormaloku.com/series/istio-around-everything-else/)
 * [Simple CI/CD for Kubernetes with Azure DevOps](https://www.orange-networks.com/blogs/224-azure-devops-ci-cd-pipeline-to-deploy-to-kubernetes)
 * Envoy series - to be added!
+
+
+
+
+
+Testing in play with docker sandbox
+
+### Run logic	
+```console
+docker run -d -p 5000:5000 djkormo/sentiment-analysis-logic
+```
+
+#### testing from curl
+
+```console
+curl http://localhost:5000/analyse/sentiment -X POST --header "Content-Type: application/json"  -d '{"sentence": "I love to drink beer"}'
+
+curl http://localhost:5000/analyse/sentiment -X POST --header "Content-Type: application/json"  -d '{"sentence": "I hate my life"}'
+```
+
+#### run webapp
+
+```console
+docker run -d -p 8080:8080 -e SA_LOGIC_API_URL='http://ip172-18-0-13-bkkt6dpt0o8g009t5rr0-5000.direct.labs.play-with-docker.com/' djkormo/sentiment-analysis-web-app	
+```
+
+
+##### testing from curl
+
+```console
+curl http://localhost:8080/sentiment/ -X POST  --header "Content-Type: application/json"  -d '{"sentence": "I love yogobella"}'
+
+curl http://localhost:8080/sentiment/ -X POST  --header "Content-Type: application/json"  -d '{"sentence": "I hate my mother"}'
+```
+
+#### run frontend 
+```console`
+docker run -d -p 80:80 djkormo/sentiment-analysis-frontend
+```console 
