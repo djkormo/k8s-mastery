@@ -1,0 +1,56 @@
+apiVersion: extensions/v1beta1
+kind: Deployment
+metadata:
+  name: sa-feedback
+spec:
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: sa-feedback
+    spec:
+      containers:
+      - image: rinormaloku/sentiment-analysis-feedback:feedback
+        imagePullPolicy: Always
+        name: sa-feedback
+        env:
+        - name: DATABASE_DIR
+          value: /usr/db
+        ports:
+          - containerPort: 80
+        volumeMounts:
+        - name: sqlite-volume
+          mountPath: /usr/db
+      volumes:
+      - name: sqlite-volume
+        persistentVolumeClaim:
+          claimName: sqlite-pvc
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: sa-feedback
+spec:
+  ports:
+  - port: 80
+    protocol: TCP
+    targetPort: 80
+  selector:
+    app: sa-feedback
+---
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: sa-ingress-feedback
+  annotations:
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/ssl-redirect: "false"
+spec:
+  rules:
+  - http:
+      paths:
+      - path: /feedback
+        backend:
+          serviceName: sa-feedback
+          servicePort: 80
