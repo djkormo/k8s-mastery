@@ -14,12 +14,16 @@ echo "DOCKER_IMAGE_REPO_NAME: $DOCKER_IMAGE_REPO_NAME"
 #  build 
 
 docker build -t $SERVICE_NAME . -f Dockerfile
-
+docker build -t $SERVICE_NAME:green . -f Dockerfile-green
 # tag
 
 docker tag $SERVICE_NAME $DOCKER_IMAGE_NAME 
+docker tag $SERVICE_NAME:green $DOCKER_IMAGE_NAME:green 
 
 #push
 
 docker push  $DOCKER_IMAGE_NAME
+docker push  $DOCKER_IMAGE_NAME:green
+
+
 
