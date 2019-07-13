@@ -1,7 +1,7 @@
 FROM python:3.6.6-alpine
 COPY sa /app
 WORKDIR /app
-RUN pip3 install -r requirements.txt && \
+RUN pip3 install -r requirements.txt && pip3 install --upgrade pip && \
     python3 -m textblob.download_corpora
 EXPOSE 5000
 ENTRYPOINT ["python3"]
