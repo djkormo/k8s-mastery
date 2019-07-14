@@ -22,7 +22,7 @@ class App extends Component {
     analyzeSentence() {
         fetch('http://localhost:8080/sentiment', {
             method: 'POST',
-			mode: '*same-origin', // no-cors, cors, *same-origin
+			mode: 'no-cors', // no-cors, cors, *same-origin
             headers: {
                 'Content-Type': 'application/json',
 				'Access-Control-Allow-Origin': '*',
