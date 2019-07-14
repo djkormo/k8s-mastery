@@ -44,6 +44,6 @@ curl http://localhost:8080/sentiment/ -X POST  --header "Content-Type: applicati
 ```
 
 #### run frontend 
-```console`
+```console
 docker run -d -p 80:80 djkormo/sentiment-analysis-frontend
-```console 
+``` 
