@@ -1,8 +1,6 @@
 
 <!doctype html>
 
- 
-<h1> https://www.allphptricks.com/create-and-consume-simple-rest-api-in-php/ </h1>
 
 <html lang="en">
 <head>
@@ -41,7 +39,13 @@ if (isset($_POST['sentiment']) && $_POST['sentiment']!="") {
 	echo "<tr><td>Response Desc:</td><td>$result->response_desc</td></tr>";
 	echo "</table>";
 }
-    ?>
+
+
+echo "<pre>";
+    print_r($_POST);
+echo "</pre>";
+
+?>
  
   
   <?php
@@ -78,5 +82,4 @@ curl_close($ch);
 <h5> https://www.allphptricks.com/create-and-consume-simple-rest-api-in-php/ </h5>
 
 </body>
-</html>
-
+</html
