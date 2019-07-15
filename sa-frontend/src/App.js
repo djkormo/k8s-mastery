@@ -20,7 +20,7 @@ class App extends Component {
     };
 
     analyzeSentence() {
-        fetch('http://localhost:8080/sentiment', {
+        fetch(process.env.SA_WEBAPP_API_URL, {
             method: 'POST',
 			mode: 'no-cors', // no-cors, cors, *same-origin
             headers: {
