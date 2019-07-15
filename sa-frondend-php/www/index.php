@@ -12,6 +12,11 @@
   <p>Here is some static content.</p>
   <p><?php echo "Here is some dynamic content"; ?></p>
   
+  
+  <?php
+  phpinfo();
+  ?>
+  
   <?php
 //API URL
 $url = 'http://www.example.com/api';
