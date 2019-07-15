@@ -1,6 +1,9 @@
 
 <!doctype html>
 
+ 
+<h1> https://www.allphptricks.com/create-and-consume-simple-rest-api-in-php/ </h1>
+
 <html lang="en">
 <head>
   <meta charset="utf-8">
@@ -58,6 +61,9 @@ $result = curl_exec($ch);
 curl_close($ch);
 
 ?>
+
+<h5> https://www.allphptricks.com/create-and-consume-simple-rest-api-in-php/ </h5>
+
 </body>
 </html>
 
