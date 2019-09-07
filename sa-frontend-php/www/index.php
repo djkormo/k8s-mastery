@@ -14,7 +14,7 @@
   
   
 <form action="" method="POST">
-<label>Enter Sentence::</label><br />
+<label>Enter Sentence (for example 'I like playing football'):</label><br />
 <input type="text" name="sentiment" placeholder="Enter  Sentence" required/>
 <br /><br />
 <button type="submit" name="submit">Submit</button>
@@ -23,7 +23,7 @@
  
 <?php
 
-
+# force displaying errors
 error_reporting(E_ALL);
 
 ini_set("display_errors", 1);
@@ -43,7 +43,7 @@ if (isset($_POST['sentiment']) && $_POST['sentiment']!="") {
 	
 	echo "<table>";
 	echo "<tr><td>Order ID:</td><td>$result->sentiment</td></tr>";
-	echo "<tr><td>Amount:</td><td>$result->polarity</td></tr>";
+	echo "<tr><td>Polarity:</td><td>$result->polarity</td></tr>";
 	echo "</table>";
 }
 
