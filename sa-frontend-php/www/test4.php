@@ -1,7 +1,7 @@
 <?php
 
 $url ="http://ip172-18-0-8-blq190ad7o0g00edt8d0-8080.direct.labs.play-with-docker.com/sentiment/";
-$url ="http://ip172-18-0-8-blq190ad7o0g00edt8d0-5000.direct.labs.play-with-docker.com/analyse/sentiment";   
+#$url ="http://ip172-18-0-8-blq190ad7o0g00edt8d0-5000.direct.labs.play-with-docker.com/analyse/sentiment";   
 $data=array('sentence' => 'I like yogobella');
 $content = json_encode($data);
 
