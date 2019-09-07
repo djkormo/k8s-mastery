@@ -16,6 +16,7 @@ error_reporting(E_ALL);
 #$args["mail"] = 'Ray.Paseur@Gmail.com';
 
 $args["sentiment"]="I love playing tennis";
+print_r($args);
 
 // SET THE URL
 $url = "https://Iconoun.com/demo/request_reflector.php";
