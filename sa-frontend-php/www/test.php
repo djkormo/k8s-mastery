@@ -47,6 +47,8 @@ $data = array(
 );
 $payload = json_encode(array("user" => $data));
 print_r($data);
+print($url)
+print($payload)
 
 //attach encoded JSON string to the POST fields
 curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
@@ -59,13 +61,15 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 
 //execute the POST request
 $result = curl_exec($ch);
-
+print_r($result);
+print($result);
 //close cURL resource
 curl_close($ch);
 
+# list of all variables
 
-while (list($var,$value) = each ($_SERVER)) {
-    echo "$var => $value <br />";
- }
+#while (list($var,$value) = each ($_SERVER)) {
+#    echo "$var => $value <br />";
+# }
  
 ?>
