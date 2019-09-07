@@ -1,6 +1,7 @@
 <?php
 
-$url = "http://ip172-18-0-8-blq190ad7o0g00edt8d0-8080.direct.labs.play-with-docker.com/sentiment/";    
+$url ="http://ip172-18-0-8-blq190ad7o0g00edt8d0-8080.direct.labs.play-with-docker.com/sentiment/";
+$url ="http://ip172-18-0-8-blq190ad7o0g00edt8d0-5000.direct.labs.play-with-docker.com/analyse/sentiment";   
 $data=array('sentiment' => 'I like yogobella');
 $content = json_encode($data);
 
@@ -24,7 +25,9 @@ curl_close($curl);
 
 $response = json_decode($json_response, true);
 echo "<pre>";
+print_r($data);
 print (CURLINFO_HTTP_CODE);
+
 print_r($response);
 echo "</pre>";
 
