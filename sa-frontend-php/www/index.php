@@ -5,12 +5,12 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <title>My PHP Website</title>
+  <title>My sentiments</title>
 </head>
 
 <body>
-  <h1>My PHP Website</h1>
-  <p>Here is some static content.</p>
+  <h1>My sentiments</h1>
+  <p>Enter the sentence.</p>
   
   
 <form action="" method="POST">
@@ -22,6 +22,13 @@
   
  
 <?php
+
+
+error_reporting(E_ALL);
+
+ini_set("display_errors", 1);
+
+
 if (isset($_POST['sentiment']) && $_POST['sentiment']!="") {
 	$sentiment = $_POST['sentiment'];
 	$url = "http://localhost:8000/sentiment/".$sentiment;
@@ -32,11 +39,11 @@ if (isset($_POST['sentiment']) && $_POST['sentiment']!="") {
 	
 	$result = json_decode($response);
 	
+	print_r($result);
+	
 	echo "<table>";
 	echo "<tr><td>Order ID:</td><td>$result->sentiment</td></tr>";
-	echo "<tr><td>Amount:</td><td>$result->amount</td></tr>";
-	echo "<tr><td>Response Code:</td><td>$result->response_code</td></tr>";
-	echo "<tr><td>Response Desc:</td><td>$result->response_desc</td></tr>";
+	echo "<tr><td>Amount:</td><td>$result->polarity</td></tr>";
 	echo "</table>";
 }
 
@@ -82,4 +89,4 @@ curl_close($ch);
 <h5> https://www.allphptricks.com/create-and-consume-simple-rest-api-in-php/ </h5>
 
 </body>
-</html
+</html>
