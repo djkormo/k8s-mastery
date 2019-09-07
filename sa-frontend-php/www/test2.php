@@ -9,7 +9,7 @@
  * https://curl.haxx.se/libcurl/c/libcurl-errors.html
  */
 error_reporting(E_ALL);
-
+ini_set("display_errors", 1);
 
 // USAGE EXAMPLE CREATES ASSOCIATIVE ARRAY OF KEY=>VALUE PAIRS
 #$args["name"] = 'Ray';
@@ -23,7 +23,7 @@ $url = "https://Iconoun.com/demo/request_reflector.php";
 
 $url=getenv('SA_WEBAPP_API_URL');
 
-$url='http://ip172-18-0-8-blq190ad7o0g00edt8d0-8080.direct.labs.play-with-docker.com/sentiment/'
+$url='http://ip172-18-0-8-blq190ad7o0g00edt8d0-8080.direct.labs.play-with-docker.com/sentiment/';
 
 // CREATE THE RESPONSE OBJECT
 $response = new POST_Response_Object($url, $args, 'TESTING 1 2 3...');
