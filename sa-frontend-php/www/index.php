@@ -15,7 +15,7 @@
   
 <form action="" method="POST">
 <label>Enter Sentence (for example 'I like playing football'):</label><br />
-<input type="text" name="sentiment" placeholder="Enter  Sentence" required/>
+<input type="text" name="sentence" placeholder="Enter  Sentence" required/>
 <br /><br />
 <button type="submit" name="submit">Submit</button>
 </form>
@@ -31,7 +31,7 @@ ini_set("display_errors", 1);
 
 if (isset($_POST['sentiment']) && $_POST['sentiment']!="") {
 	$sentiment = $_POST['sentiment'];
-   $url = "http://localhost:8000/sentiment/".$sentiment;
+   $url = "http://ip172-18-0-8-blq190ad7o0g00edt8d0-8080.direct.labs.play-with-docker.com/sentiment/"
    
    print('Endpoint:-> '.$url);
    
@@ -47,7 +47,7 @@ if (isset($_POST['sentiment']) && $_POST['sentiment']!="") {
 	print_r($result);
 	
 	echo "<table>";
-	echo "<tr><td>Order ID:</td><td>$result->sentiment</td></tr>";
+	echo "<tr><td>Sentence:</td><td>$result->sentence</td></tr>";
 	echo "<tr><td>Polarity:</td><td>$result->polarity</td></tr>";
 	echo "</table>";
 }
