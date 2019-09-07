@@ -31,14 +31,19 @@ ini_set("display_errors", 1);
 
 if (isset($_POST['sentiment']) && $_POST['sentiment']!="") {
 	$sentiment = $_POST['sentiment'];
-	$url = "http://localhost:8000/sentiment/".$sentiment;
-	
+   $url = "http://localhost:8000/sentiment/".$sentiment;
+   
+   print('Endpoint:-> '.$url);
+   
 	$client = curl_init($url);
 	curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
 	$response = curl_exec($client);
 	
 	$result = json_decode($response);
-	
+   
+   //close cURL resource
+   curl_close($client);
+
 	print_r($result);
 	
 	echo "<table>";

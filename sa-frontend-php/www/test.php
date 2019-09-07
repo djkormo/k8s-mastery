@@ -47,8 +47,8 @@ $data = array(
 );
 $payload = json_encode(array("user" => $data));
 print_r($data);
-print($url)
-print($payload)
+print($url);
+print($payload);
 
 //attach encoded JSON string to the POST fields
 curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
