@@ -31,7 +31,7 @@ ini_set("display_errors", 1);
 
 if (isset($_POST['sentiment']) && $_POST['sentiment']!="") {
 	$sentiment = $_POST['sentiment'];
-   $url = "http://ip172-18-0-8-blq190ad7o0g00edt8d0-8080.direct.labs.play-with-docker.com/sentiment/"
+   $url = "http://ip172-18-0-8-blq190ad7o0g00edt8d0-8080.direct.labs.play-with-docker.com/sentiment/";
    
    print('Endpoint:-> '.$url);
    
