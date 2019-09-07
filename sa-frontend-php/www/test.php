@@ -35,10 +35,11 @@ $ch = curl_init($url);
 
 //setup request to send json via POST
 $data = array(
-    'username' => 'codexworld',
-    'password' => '123456'
+    'sentiment' => 'I like bananas',
+    'sentiment' => 'I hate going to schol'
 );
 $payload = json_encode(array("user" => $data));
+print_r($data);
 
 //attach encoded JSON string to the POST fields
 curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
@@ -56,6 +57,8 @@ $result = curl_exec($ch);
 curl_close($ch);
 
 
-
-
+while (list($var,$value) = each ($_SERVER)) {
+    echo "$var => $value <br />";
+ }
+ 
 ?>
