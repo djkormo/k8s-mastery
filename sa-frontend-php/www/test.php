@@ -1,4 +1,6 @@
 <?php
+
+
 ###
 
 # force displaying errors
@@ -29,6 +31,11 @@ print_r(array_keys(get_defined_vars()));
 
 
 $url = 'http://ip172-18-0-8-blq190ad7o0g00edt8d0-8080.direct.labs.play-with-docker.com/sentiment/';
+
+
+$url=getenv('SA_WEBAPP_API_URL');
+
+echo getenv('SA_WEBAPP_API_URL');
 
 //create a new cURL resource
 $ch = curl_init($url);
