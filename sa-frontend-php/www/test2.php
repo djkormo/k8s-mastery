@@ -12,11 +12,15 @@ error_reporting(E_ALL);
 
 
 // USAGE EXAMPLE CREATES ASSOCIATIVE ARRAY OF KEY=>VALUE PAIRS
-$args["name"] = 'Ray';
-$args["mail"] = 'Ray.Paseur@Gmail.com';
+#$args["name"] = 'Ray';
+#$args["mail"] = 'Ray.Paseur@Gmail.com';
+
+$args["sentiment"]="I love playing tennis";
 
 // SET THE URL
 $url = "https://Iconoun.com/demo/request_reflector.php";
+
+$url=getenv('SA_WEBAPP_API_URL');
 
 // CREATE THE RESPONSE OBJECT
 $response = new POST_Response_Object($url, $args, 'TESTING 1 2 3...');
