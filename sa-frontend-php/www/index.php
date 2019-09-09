@@ -15,9 +15,10 @@
   
 <form action="index.php" method="POST">
 <label>Enter Sentence (for example 'I like playing football'):</label><br />
-<input type="text" name="sentence" placeholder="Enter  Sentence" required/>
+<input type="text" value="I hate cats and dogs" name="sentence" placeholder="Enter  Sentence" required/>
 <br /><br />
-<button type="submit" name="submit">Submit</button>
+<input type="submit" value="Check sentiment of your sentence">
+<input type="reset" value="Reset">
 </form>
   
  
@@ -28,6 +29,7 @@ error_reporting(E_ALL);
 
 ini_set("display_errors", 1);
 
+#<button type="submit" name="submit" value="Check sentiment of your sentence">Submit</button>
 
 $url ="http://ip172-18-0-8-blq190ad7o0g00edt8d0-8080.direct.labs.play-with-docker.com/sentiment/";
 
@@ -43,7 +45,7 @@ echo "</pre>";
 //{
 
 $sentence= $_POST['sentence'];
-$data=array('sentence' => 'I hate cats ad dogs');
+$data=array('sentence' => 'I hate cats and dogs');
 $content = json_encode($data);
 
 $curl = curl_init($url);
