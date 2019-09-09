@@ -26,7 +26,7 @@ class HelloWorld(Resource):            #  Create a RESTful resource
 @ns.route("/analyse/sentiment")
 class Sentiment(Resource): 
   def post(self):
-    sentence = request.get_json()(force=True)['sentence']
+    sentence = request.get_json(force=True)['sentence']
     polarity = TextBlob(sentence).sentences[0].polarity
     return jsonify(
         sentence=sentence,
