@@ -35,11 +35,10 @@ $url = getenv('SA_WEBAPP_API_URL');
 
 print("Your endpoint->: ".$url); 
  
-//if((isset($_POST['sentence']) && $_POST['sentence']!="")
-//{
+if((isset($_POST['sentence']) && $_POST['sentence']!="")
+{
    
-$data=array('sentence' => 'I like yogobella',
-'sentence' => 'I hate cats'
+$data=array('sentence' => $_POST['sentence']
 );
 $content = json_encode($data);
 
@@ -72,7 +71,7 @@ print (CURLINFO_HTTP_CODE);
 print_r($response);
 echo "</pre>";
 
-//}
+} // of if 
 
 echo "<pre>";
     print_r($_POST);
