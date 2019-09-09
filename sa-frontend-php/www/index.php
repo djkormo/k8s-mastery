@@ -36,7 +36,7 @@ $url = getenv('SA_WEBAPP_API_URL');
 print("Your endpoint->: ".$url); 
  
 //if((isset($_POST['sentence']) && $_POST['sentence']!="")
-{
+//{
 
 $sentence= $_POST['sentence'];
 $data=array('sentence' => 'I hate cats ad dogs');
