@@ -45,5 +45,6 @@ curl http://localhost:8080/sentiment/ -X POST  --header "Content-Type: applicati
 
 #### run frontend 
 ```console
-docker run -d -p 80:80  -e SA_WEBAPP_API_URL='http://localhost:8000/sentiment' djkormo/sentiment-analysis-frontend
+
+docker run -d -p 80:80  -e SA_WEBAPP_API_URL='http://localhost:8000/sentiment/' djkormo/sentiment-analysis-frontend-php
 ``` 
