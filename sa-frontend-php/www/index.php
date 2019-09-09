@@ -29,29 +29,46 @@ error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
 
-if (isset($_POST['sentiment']) && $_POST['sentiment']!="") {
-	$sentiment = $_POST['sentiment'];
-   $url = "http://ip172-18-0-8-blq190ad7o0g00edt8d0-8080.direct.labs.play-with-docker.com/sentiment/";
-   
-   print('Endpoint:-> '.$url);
-   
-	$client = curl_init($url);
-	curl_setopt($client,CURLOPT_RETURNTRANSFER,true);
-	$response = curl_exec($client);
-	
-	$result = json_decode($response);
-   
-   //close cURL resource
-   curl_close($client);
+$url ="http://ip172-18-0-8-blq190ad7o0g00edt8d0-8080.direct.labs.play-with-docker.com/sentiment/";
 
-	print_r($result);
-	
-	echo "<table>";
-	echo "<tr><td>Sentence:</td><td>$result->sentence</td></tr>";
-	echo "<tr><td>Polarity:</td><td>$result->polarity</td></tr>";
-	echo "</table>";
+$url = getenv('SA_WEBAPP_API_URL');
+  
+if((isset($_POST['sentence']) && $_POST['sentence']!="")
+{
+   
+$data=array('sentence' => 'I like yogobella',
+'sentence' => 'I hate cats'
+);
+$content = json_encode($data);
+
+$curl = curl_init($url);
+curl_setopt($curl, CURLOPT_HEADER, false);
+curl_setopt($curl, CURLOPT_RETURNTRANSFER, true);
+curl_setopt($curl, CURLOPT_HTTPHEADER,
+        array("Content-type: application/json"));
+curl_setopt($curl, CURLOPT_POST, true);
+curl_setopt($curl, CURLOPT_POSTFIELDS, $content);
+
+$json_response = curl_exec($curl);
+
+$status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
+
+
+if ( $status > 200 ) {
+    die("Error: call to URL $url failed with status $status, response $json_response, curl_error " . curl_error($curl) . ", curl_errno " . curl_errno($curl));
 }
 
+curl_close($curl);
+
+$response = json_decode($json_response, true);
+echo "<pre>";
+print_r($data);
+print (CURLINFO_HTTP_CODE);
+
+print_r($response);
+echo "</pre>";
+
+}
 
 echo "<pre>";
     print_r($_POST);
@@ -60,38 +77,7 @@ echo "</pre>";
 ?>
  
   
-  <?php
-//API URL
-$url = 'http://www.example.com/api';
 
-//create a new cURL resource
-$ch = curl_init($url);
-
-//setup request to send json via POST
-$data = array(
-    'sentence' => 'sentence',
-    'content' => 'I like my mother'
-);
-$payload = json_encode(array("user" => $data));
-
-//attach encoded JSON string to the POST fields
-curl_setopt($ch, CURLOPT_POSTFIELDS, $payload);
-
-//set the content type to application/json
-curl_setopt($ch, CURLOPT_HTTPHEADER, array('Content-Type:application/json'));
-
-//return response instead of outputting
-curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-
-//execute the POST request
-$result = curl_exec($ch);
-
-//close cURL resource
-curl_close($ch);
-
-?>
-
-<h5> https://www.allphptricks.com/create-and-consume-simple-rest-api-in-php/ </h5>
 
 </body>
 </html>
