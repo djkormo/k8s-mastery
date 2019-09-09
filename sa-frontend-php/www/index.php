@@ -13,7 +13,7 @@
   <p>Enter the sentence.</p>
   
   
-<form action="" method="POST">
+<form action="index.php" method="POST">
 <label>Enter Sentence (for example 'I like playing football'):</label><br />
 <input type="text" name="sentence" placeholder="Enter  Sentence" required/>
 <br /><br />
@@ -38,7 +38,7 @@ print("Your endpoint->: ".$url);
 #if((isset($_POST['sentence']) && $_POST['sentence']!="")
 {
    
-$data=array('sentence' => $_POST['sentence']
+$data=array('sentence' =>.$_POST['sentence']
 );
 $content = json_encode($data);
 
