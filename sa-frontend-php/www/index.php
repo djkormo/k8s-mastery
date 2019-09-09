@@ -64,7 +64,7 @@ curl_close($curl);
 
 $response = json_decode($json_response, true);
 echo "<pre>";
-print_r($data);
+
 print (CURLINFO_HTTP_CODE);
 
 print_r($response);
