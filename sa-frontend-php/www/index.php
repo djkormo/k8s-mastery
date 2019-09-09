@@ -32,7 +32,9 @@ ini_set("display_errors", 1);
 $url ="http://ip172-18-0-8-blq190ad7o0g00edt8d0-8080.direct.labs.play-with-docker.com/sentiment/";
 
 $url = getenv('SA_WEBAPP_API_URL');
-  
+
+print("Your endpoint->: ".$url); 
+ 
 //if((isset($_POST['sentence']) && $_POST['sentence']!="")
 //{
    
