@@ -40,12 +40,17 @@ print("Your endpoint->: ".$url);
 echo "<pre>";
     print_r($_POST);
 echo "</pre>";
+
+
  
 //if((isset($_POST['sentence']) && $_POST['sentence']!="")
 //{
 
 $sentence= $_POST['sentence'];
 $data=array('sentence' => 'I hate cats and dogs');
+
+$data["sentence"] = $sentence;
+
 $content = json_encode($data);
 
 $curl = curl_init($url);
