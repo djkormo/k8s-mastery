@@ -33,8 +33,8 @@ $url ="http://ip172-18-0-8-blq190ad7o0g00edt8d0-8080.direct.labs.play-with-docke
 
 $url = getenv('SA_WEBAPP_API_URL');
   
-if((isset($_POST['sentence']) && $_POST['sentence']!="")
-{
+//if((isset($_POST['sentence']) && $_POST['sentence']!="")
+//{
    
 $data=array('sentence' => 'I like yogobella',
 'sentence' => 'I hate cats'
@@ -68,7 +68,7 @@ print (CURLINFO_HTTP_CODE);
 print_r($response);
 echo "</pre>";
 
-}
+//}
 
 echo "<pre>";
     print_r($_POST);
