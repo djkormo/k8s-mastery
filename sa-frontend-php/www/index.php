@@ -35,11 +35,11 @@ $url = getenv('SA_WEBAPP_API_URL');
 
 print("Your endpoint->: ".$url); 
  
-#if((isset($_POST['sentence']) && $_POST['sentence']!="")
+if((isset($_POST['sentence']) && $_POST['sentence']!="")
 {
-   
-$data=array('sentence' =>.$_POST['sentence']
-);
+
+$sentence= $_POST['sentence'];
+$data=array('sentence' => 'I hate cats ad dogs');
 $content = json_encode($data);
 
 $curl = curl_init($url);
@@ -55,7 +55,7 @@ $json_response = curl_exec($curl);
 $status = curl_getinfo($curl, CURLINFO_HTTP_CODE);
 
 echo "<pre>";
-
+print($sentence);
 print_r($data);
 if ( $status > 200 ) {
     print("Error: call to URL $url failed with status $status, response $json_response, curl_error " . curl_error($curl) . ", curl_errno " . curl_errno($curl));
@@ -71,7 +71,7 @@ print (CURLINFO_HTTP_CODE);
 print_r($response);
 echo "</pre>";
 
-//} // of if 
+} // of if 
 
 echo "<pre>";
     print_r($_POST);
