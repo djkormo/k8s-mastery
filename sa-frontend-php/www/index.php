@@ -6,6 +6,8 @@
 <head>
   <meta charset="utf-8">
   <title>My sentiments</title>
+  <!-- Link your php/css file -->
+  <link rel="stylesheet" href="style.php" media="screen">
 </head>
 
 <body>
