@@ -16,8 +16,11 @@ spec:
         app: sa-frontend                                  # 6
     spec:
       containers:
-        - image: djkormo/sentiment-analysis-frontend
+        - image: djkormo/sa-frontend
           imagePullPolicy: Always                         # 7
           name: sa-frontend
+          env:
+          - name: SA_WEBAPP_API_URL
+            value: "http://sa-webapp-lb/sentiment/"
           ports:
             - containerPort: 80
