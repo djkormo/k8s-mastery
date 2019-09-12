@@ -3,6 +3,9 @@
 
 ### sa-frontend (php) -> sa-webapp (java) -> sa-logic (python)
 
+
+![Parts of our application](architecture.gif)
+
 #### Images from DockerHub
 
 #### sa-frontend -> djkormo/sa-frontend
@@ -114,6 +117,7 @@ service/sa-logic created
 kubectl get svc
 ```
 <pre>
+NAME             TYPE           CLUSTER-IP     EXTERNAL-IP     PORT(S)        AGE
 sa-frontend-lb   LoadBalancer   10.0.55.106    168.63.46.17    80:30502/TCP   37m
 sa-logic         ClusterIP      10.0.183.165   <none>          80/TCP         26s
 sa-webapp-lb     LoadBalancer   10.0.146.185   13.69.139.248   80:31140/TCP   17m
@@ -146,5 +150,8 @@ Name:   sa-webapp-lb.default.svc.cluster.local
 Address: 10.0.146.185
 
 </pre>
+
+![Our application in Kuberenetes](architecture-services.png)
+
 
 ### TODO rolling updates 
