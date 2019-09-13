@@ -48,26 +48,27 @@ if [ -z "$ACR_NAME" ] || [ -z "$OPERATION" ]; then
     usage
 fi
 
+
 # budujemy obraz kontenerowy  na podstawie zawartości pliku Dockerfile
 
 if [ "$OPERATION" = "build" ] ;
 then
 echo "Building image...";
-az acr build --registry $ACR_NAME --image sa-logic:v1 .
+az acr build --registry $ACR_NAME --image sa-frontend:v1 .
 fi
 
 if [ "$OPERATION" = "rebuild" ] ;
 then
 echo "Rebuilding image...";
-az acr repository delete --name $ACR_NAME --repository sa-logic:v1
-az acr build --registry $ACR_NAME --image sa-logic:v1 .
+az acr repository delete --name $ACR_NAME --repository sa-frontend:v1
+az acr build --registry $ACR_NAME --image sa-frontend:v1 .
 fi
 
 
 if [ "$OPERATION" = "delete" ] ;
 then
 echo "deleting  image...";
-az acr repository delete --name $ACR_NAME --repository sa-logic:v1
+az acr repository delete --name $ACR_NAME --repository sa-frontend:v1
 fi
 
 
@@ -76,4 +77,4 @@ fi
 az acr repository list --name $ACR_NAME --output table
 
 # szczegoly 
-az acr repository show -n $ACR_NAME -t sa-logic:v1
+az acr repository show -n $ACR_NAME -t sa-frontend:v1
