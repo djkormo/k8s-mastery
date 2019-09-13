@@ -55,6 +55,8 @@ if [ "$OPERATION" = "build" ] ;
 then
 echo "Building image...";
 az acr build --registry $ACR_NAME --image sa-frontend:v1 .
+# szczegoly 
+az acr repository show -n $ACR_NAME -t sa-frontend:v1
 fi
 
 if [ "$OPERATION" = "rebuild" ] ;
@@ -62,6 +64,9 @@ then
 echo "Rebuilding image...";
 az acr repository delete --name $ACR_NAME --repository sa-frontend:v1
 az acr build --registry $ACR_NAME --image sa-frontend:v1 .
+# szczegoly 
+az acr repository show -n $ACR_NAME -t sa-frontend:v1
+
 fi
 
 
@@ -76,5 +81,3 @@ fi
 # lista zbudowanych obrazów
 az acr repository list --name $ACR_NAME --output table
 
-# szczegoly 
-az acr repository show -n $ACR_NAME -t sa-frontend:v1

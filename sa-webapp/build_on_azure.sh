@@ -53,6 +53,8 @@ if [ "$OPERATION" = "build" ] ;
 then
 echo "Building image...";
 az acr build --registry $ACR_NAME --image sa-webapp:v1 .
+# szczegoly 
+az acr repository show -n $ACR_NAME -t sa-webapp:v1
 fi
 
 if [ "$OPERATION" = "rebuild" ] ;
@@ -60,6 +62,8 @@ then
 echo "Rebuilding image...";
 az acr repository delete --name $ACR_NAME --repository sa-webapp:v1
 az acr build --registry $ACR_NAME --image sa-webapp:v1 .
+# szczegoly 
+az acr repository show -n $ACR_NAME -t sa-webapp:v1
 fi
 
 
